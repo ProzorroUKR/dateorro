@@ -195,7 +195,9 @@ def calc_normalized_datetime(dt, ceil=False):
         datetime.datetime(2018, 1, 6, 0, 0)
 
     """
-    normalized = dt.replace(hour=0, minute=0, second=0, microsecond=0)
-    if ceil:
-        return normalized + timedelta(1)
-    return normalized
+    if dt.time() != time(0):
+        normalized = dt.replace(hour=0, minute=0, second=0, microsecond=0)
+        if ceil:
+            return normalized + timedelta(1)
+        return normalized
+    return dt

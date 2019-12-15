@@ -139,8 +139,12 @@ def test_check_working_datetime(dt, expected):
     [
         # Test ceil
         (datetime(2018, 1, 1, 12, 0, 0), True, datetime(2018, 1, 2, 0, 0, 0)),
+        # Test ceil midnight
+        (datetime(2018, 1, 1, 0, 0, 0), True, datetime(2018, 1, 1, 0, 0, 0)),
         # Test not ceil
         (datetime(2018, 1, 1, 12, 0, 0), False, datetime(2018, 1, 1, 0, 0, 0)),
+        # Test not ceil midnight
+        (datetime(2018, 1, 1, 0, 0, 0), False, datetime(2018, 1, 1, 0, 0, 0)),
     ],
 )
 def test_calc_normalized_datetime(dt, ceil, expected):
