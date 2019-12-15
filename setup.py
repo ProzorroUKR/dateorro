@@ -18,7 +18,7 @@ class test(setuptools_test):
 
 setup(
     name="dateorro",
-    version="0.0.1",
+    version="0.0.2",
     description="Working/calendar date/datetime calculations",
     python_requires=">=2.7",
     long_description=README,
