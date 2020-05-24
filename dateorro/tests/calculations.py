@@ -65,12 +65,14 @@ def test_calc_datetime_acceleration(dt, delta, accelerator, expected):
         (datetime(2018, 1, 2, 12), timedelta(3), datetime(2018, 1, 7, 12)),
         # Test ends after non working
         (datetime(2018, 1, 2, 12), timedelta(4), datetime(2018, 1, 8, 12)),
-        # Test ends between working and non working
+        # Test ends between working and non working midnight
         (datetime(2018, 1, 4), timedelta(1), datetime(2018, 1, 5)),
         # Test starts on non working and ends between working and non working
         (datetime(2018, 1, 1, 12, 30), timedelta(3), datetime(2018, 1, 5)),
         # Test starts on 1st of 2 non working days
         (datetime(2017, 12, 31, 12), timedelta(1), datetime(2018, 1, 3)),
+        # Test backwards ends on non working midnight
+        (datetime(2018, 1, 2), timedelta(-1), datetime(2017, 12, 29)),
         # Test backwards ends on non working
         (datetime(2018, 1, 7, 12), timedelta(-1), datetime(2018, 1, 4, 12)),
         # Test backwards starts on non working

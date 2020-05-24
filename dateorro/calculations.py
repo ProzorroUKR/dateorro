@@ -77,7 +77,7 @@ def calc_working_datetime(dt, delta, midnight=True, calendar=None):
     dt = calc_nearest_working_datetime(dt, backwards, calendar)
     for _ in range(abs(delta.days) - 1):
         dt = calc_next_working_datetime(dt, backwards, calendar)
-    if midnight and dt.time() == time(0):
+    if midnight and delta > timedelta() and dt.time() == time(0):
         dt = calc_next_datetime(dt, backwards)
     else:
         dt = calc_next_working_datetime(dt, backwards, calendar)
